@@ -14,6 +14,7 @@ from services.producto import productos
 from services.tipo_comprobante import tipos_comprobante
 from services.usuario import usuarios
 from services.vendedor import vendedores
+from services.marca import marcas
 
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
@@ -21,8 +22,8 @@ from datetime import timedelta
 
 app=Flask(__name__)
 
-app.config['SECRET_KEY']=''
-app.config['JWT_SECRET_KEY']=''
+app.config['SECRET_KEY']='5cdb236ce612d171f2d592eb367d1d32f1f77317fd52bf32c5e9aa002434d033'
+app.config['JWT_SECRET_KEY']='5cdb236ce612d171f2d592eb367d1d32f1f77317fd52bf32c5e9aa002434d033'
 app.config['JWT_ACCESS_TOKEN_EXPIRES']=timedelta(hours=2)
 app.config['JWT_REFRESH_TOKEN_EXPIRES']=timedelta(days=1)
 
@@ -38,6 +39,7 @@ app.register_blueprint(detalles_pedido)
 app.register_blueprint(devoluciones)
 app.register_blueprint(entregas)
 app.register_blueprint(inventarios)
+app.register_blueprint(marcas)
 app.register_blueprint(pedidos)
 app.register_blueprint(personas)
 app.register_blueprint(productos)

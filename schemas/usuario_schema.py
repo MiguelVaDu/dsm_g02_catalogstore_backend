@@ -13,4 +13,4 @@ class UsuarioSchema(ma.Schema):
     persona = ma.Nested(PersonaSchema)
 
 usuario_schema = UsuarioSchema()
-usuario_schema = UsuarioSchema(many=True)
+usuarios_schema = UsuarioSchema(many=True)

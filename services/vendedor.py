@@ -22,7 +22,7 @@ def get_vendedores():
     return make_response(jsonify(data), 200)
 
 @vendedores.route('/vendedores/insert', methods=['POST'])
-@jwt_required()
+#@jwt_required()
 def insert():
     data = request.get_json()
     

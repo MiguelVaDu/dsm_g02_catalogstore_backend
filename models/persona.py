@@ -18,7 +18,8 @@ class Persona(db.Model):
     
     usuario = db.relationship('Usuario', backref='persona', cascade='all, delete-orphan')
     
-    def __init__ (self,tipo_documento,nombre,apellido_paterno,apellido_materno,telefono,fecha_nacimiento,sexo,direccion):
+    def __init__ (self,documento,tipo_documento,nombre,apellido_paterno,apellido_materno,telefono,fecha_nacimiento,sexo,direccion):
+        self.documento = documento
         self.tipo_documento = tipo_documento
         self.nombre = nombre
         self.apellido_paterno = apellido_paterno

@@ -138,7 +138,7 @@ def insert():
         
         return make_response(jsonify(data),400)
     
-    usuario = Usuario(documento,correo,password)
+    usuario = Usuario(correo,password,documento)
     
     db.session.add(usuario)
     db.session.commit()

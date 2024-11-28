@@ -6,7 +6,7 @@ class VendedorSchema(ma.Schema):
     class Meta:
         model = Vendedor
         fields = (
-            'vendedor_id'
+            'vendedor_id',
         )
     usuario = ma.Nested(UsuarioSchema)
 

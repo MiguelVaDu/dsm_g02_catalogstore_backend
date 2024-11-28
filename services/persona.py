@@ -7,7 +7,7 @@ from flask_jwt_extended import jwt_required
 personas = Blueprint('personas', __name__)
 
 @personas.route('/personas/get', methods=['GET'])
-@jwt_required()
+#@jwt_required()
 def get_personas():
     result = {}
     personas = Persona.query.all()
@@ -22,7 +22,6 @@ def get_personas():
     return make_response(jsonify(data), 200)
 
 @personas.route('/personas/insert', methods=['POST'])
-@jwt_required()
 def insert():
     data = request.get_json()
     

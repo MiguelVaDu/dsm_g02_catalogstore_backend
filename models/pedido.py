@@ -14,7 +14,7 @@ class Pedido(db.Model):
     subtotal = db.Column(db.Numeric(10,2))
     monto_total = db.Column(db.Numeric(10,2))
     cliente_id = db.Column(db.Integer, db.ForeignKey('clientes.cliente_id'))
-    comprobante_id = db.Column(db.Integer, db.ForeignKey('comprobantes.comprobante_id'))
+    comprobante_id = db.Column(db.Integer, db.ForeignKey('tipo_comprobantes.comprobante_id'))
     
     entrega = db.relationship('Entrega', backref='pedido', cascade='all, delete-orphan')
     devolucion = db.relationship('Devolucion', backref='pedido', cascade='all, delete-orphan')

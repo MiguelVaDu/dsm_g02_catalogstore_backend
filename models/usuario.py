@@ -1,15 +1,14 @@
 from utils.db import db
 from dataclasses import dataclass
 from werkzeug.security import generate_password_hash
-from models.usuario import Usuario
 
 @dataclass
 class Usuario(db.Model):
     __tablename__ = 'usuarios'
     
     usuario_id = db.Column(db.Integer, primary_key=True)
-    correo = db.Column(db.String(15))
-    password = db.Column(db.String(50))
+    correo = db.Column(db.String(150))
+    password = db.Column(db.String(255))
     documento = db.Column(db.Integer, db.ForeignKey('personas.documento'))
     
     cliente = db.relationship('Cliente', backref='usuario', cascade='all, delete-orphan')

@@ -22,7 +22,7 @@ def get_clientes():
     return make_response(jsonify(data), 200)
 
 @clientes.route('/clientes/insert', methods=['POST'])
-@jwt_required()
+#@jwt_required()
 def insert():
     data = request.get_json()
     
