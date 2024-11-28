@@ -11,7 +11,7 @@ class Producto(db.Model):
     sku = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String(150))
     precio = db.Column(db.Numeric(10,2))
-    imagen = db.Column(db.Float)
+    imagen = db.Column(db.LargeBinary)
     descripcion = db.Column(db.String(250))
     unidades = db.Column(db.Integer)
     categoria_id = db.Column(db.Integer, db.ForeignKey('categorias.categoria_id'))
@@ -22,7 +22,8 @@ class Producto(db.Model):
     detalle_pedido = db.relationship('Detalle_pedido', backref='producto', cascade='all, delete-orphan')
     inventario = db.relationship('Inventario', backref='producto', cascade='all, delete-orphan')
     
-    def __init__ (self,nombre,precio,imagen,descripcion,unidades,categoria_id,marca_id,vendedor_id):
+    def __init__ (self,sku,nombre,precio,imagen,descripcion,unidades,categoria_id,marca_id,vendedor_id):
+        self.sku = sku
         self.nombre = nombre
         self.precio = precio
         self.imagen = imagen
